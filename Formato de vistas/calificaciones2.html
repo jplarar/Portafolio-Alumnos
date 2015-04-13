@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Actividades Extracurriculares</title>
+	<title>Portafolio de Alumnos</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 	<link rel="stylesheet" href="mystyles.css" >
 </head>
@@ -40,8 +40,8 @@
 		      <ul class="nav navbar-nav">
 		        <li><a href="academico.html">Academico</a></li>
 		        <li><a href="ss.html">Servicio Social</a></li>
-		        <li class="active"><a href="act_ext.html">Actividades Extracurriculares<span class="sr-only">(current)</span></a></li>
-				<li><a href="pi.html">Programas Internacionales</a></li>
+		        <li><a href="act_ext.html">Actividades Extracurriculares</a></li>
+				<li class="active"><a href="pi.html">Programas Internacionales<span class="sr-only">(current)</span></a></li>
 		      </ul>
 		    </div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->
@@ -51,44 +51,92 @@
 			<div class="row">
 				<div class="col-sm-3">
 					<ul class="nav nav-pills nav-stacked">
-					  <li role="presentation" class="active"><a href="#">Lista de Actividades</a></li>					  
+					  <li role="presentation"><a href="pi.html">Historia</a></li>
+					  <li role="presentation"><a href="horario2.html">Horario en el Extrangero</a></li>
+					  <li role="presentation" class="active"><a href="#">Calificaciones en el Extrangero</a></li>
+					  <li role="presentation"><a href="#">Materias por Acreditar</a></li>
+					  <li role="presentation"><a href="#">Materias Acreditadas</a></li>
 					</ul>
 				</div>
 
 				<div class="col-sm-9 contenido">
 					<h2>Alumno</h2>
 					<div class="table-responsive">
-						<table class="table table-hover">
+						<table class="table table-hover" id="calTable">
 							<thead>
 								<tr>
-									<th>Actividad</th>
-									<th>Tipo</th>
-									<th>Estatus</th>
-									<th>Semestre</th>
-									
+									<th rowspan="2">Materia</th>
+									<th rowspan="2">Nombre de la materia</th>
+									<th colspan="4"> Calificaciones</th>
+								</tr>
+								<th> 1P</th>
+								<th> 2P</th>
+								<th> Promedio</th>
+								<th> Final</th>
+								<tr>
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>Futbol</td>
-									<td>Deportiva</td>
-									<td>Activo</td>
-									<td>Ene-May 2015</td>
-								</tr>
-								<tr>
-									<td>Coro Orquesta</td>
-									<td>Cultural</td>
-									<td>Activo</td>									
-									<td>Ene-May 2015</td>
-								</tr>
-								<tr>
-									<td>Raices</td>
-									<td>Cultural</td>
-									<td>Activo</td>
-									<td>Ene-May 2015</td>
-								</tr>
 							</tbody>
 						</table>
+						<script type="text/javascript">
+
+	
+    //create first line
+    for(i = 1; i <5; i++){
+    //clave de mat
+    	var tr = document.createElement("tr");
+    	var td = document.createElement("td");
+    var t = document.createTextNode("XXXX-"+i);
+    td.appendChild(t);
+    tr.appendChild(td);
+    //nombre de materia
+    td = document.createElement("td");
+    var t = document.createTextNode("Clase " +i);
+    td.appendChild(t);
+   	tr.appendChild(td);
+   	//1P
+   	td = document.createElement("td");
+   	var cal1 = Math.floor(Math.random() * (100 - 50+1)) + 50;
+    var t = document.createTextNode(cal1);
+    document.getElementsByTagName("tbody")[0].appendChild(tr);
+    td.appendChild(t);
+    td.setAttribute("class", "calCell");
+   	tr.appendChild(td);
+
+   	//2P
+   	td = document.createElement("td");
+   	var cal2 = Math.floor(Math.random() * (100 - 50+1)) + 50;
+    var t = document.createTextNode(cal2);
+    document.getElementsByTagName("tbody")[0].appendChild(tr);
+    td.appendChild(t);
+    td.setAttribute("class", "calCell");
+   	tr.appendChild(td);
+    
+    //PROM
+   	td = document.createElement("td");
+    var t = document.createTextNode((cal1+cal2)/2);
+    document.getElementsByTagName("tbody")[0].appendChild(tr);
+    td.appendChild(t);
+    td.setAttribute("class", "calCell");
+   	tr.appendChild(td);
+
+   	//final
+   	td = document.createElement("td");
+    var t = document.createTextNode("");
+    document.getElementsByTagName("tbody")[0].appendChild(tr);
+    td.appendChild(t);
+    td.setAttribute("class", "calCell");
+   	tr.appendChild(td);
+    
+
+    document.getElementsByTagName("tbody")[0].appendChild(tr);
+    }
+	
+
+
+
+	</script>
 					</div>
 <!--
 					<h3>Otro title</h3>
@@ -136,6 +184,15 @@
 			document.getElementById("wrap").style.margin = "0 0 -"+footerHeight+"px";
 			document.getElementById("push").style.height = footerHeight+"px";
 		  }
+//http://stackoverflow.com/questions/4880595/html-table-set-some-cell-text-colours-based-on-value
+		  $(document).ready(function(){
+    $('#calTable td.calCell').each(function(){
+        if (parseInt($(this).text()) < 70) {
+            $(this).css('color','red');
+        }
+    });
+});
 	</script>
+
 </body>
 </html>

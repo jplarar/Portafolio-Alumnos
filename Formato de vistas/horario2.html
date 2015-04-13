@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Actividades Extracurriculares</title>
+	<title>Portafolio de Alumnos</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 	<link rel="stylesheet" href="mystyles.css" >
 </head>
@@ -40,8 +40,8 @@
 		      <ul class="nav navbar-nav">
 		        <li><a href="academico.html">Academico</a></li>
 		        <li><a href="ss.html">Servicio Social</a></li>
-		        <li class="active"><a href="act_ext.html">Actividades Extracurriculares<span class="sr-only">(current)</span></a></li>
-				<li><a href="pi.html">Programas Internacionales</a></li>
+		        <li><a href="act_ext.html">Actividades Extracurriculares</a></li>
+				<li class="active"><a href="pi.html">Programas Internacionales<span class="sr-only">(current)</span></a></li>
 		      </ul>
 		    </div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->
@@ -51,7 +51,11 @@
 			<div class="row">
 				<div class="col-sm-3">
 					<ul class="nav nav-pills nav-stacked">
-					  <li role="presentation" class="active"><a href="#">Lista de Actividades</a></li>					  
+					  <li role="presentation"><a href="pi.html">Historia</a></li>
+					  <li role="presentation" class="active"><a href="#">Horario en el Extrangero</a></li>
+					  <li role="presentation"><a href="calificaciones2.html">Calificaciones en el Extrangero</a></li>
+					  <li role="presentation"><a href="#">Materias por Acreditar</a></li>
+					  <li role="presentation"><a href="#">Materias Acreditadas</a></li>
 					</ul>
 				</div>
 
@@ -61,34 +65,50 @@
 						<table class="table table-hover">
 							<thead>
 								<tr>
-									<th>Actividad</th>
-									<th>Tipo</th>
-									<th>Estatus</th>
-									<th>Semestre</th>
-									
+									<th>Hora</th>
+									<th>Lunes</th>
+									<th>Martes</th>
+									<th>Miercoles</th>
+									<th>Jueves</th>
+									<th>Viernes</th>
+									<th>Sabado</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>Futbol</td>
-									<td>Deportiva</td>
-									<td>Activo</td>
-									<td>Ene-May 2015</td>
-								</tr>
-								<tr>
-									<td>Coro Orquesta</td>
-									<td>Cultural</td>
-									<td>Activo</td>									
-									<td>Ene-May 2015</td>
-								</tr>
-								<tr>
-									<td>Raices</td>
-									<td>Cultural</td>
-									<td>Activo</td>
-									<td>Ene-May 2015</td>
-								</tr>
 							</tbody>
 						</table>
+						<script type="text/javascript">
+
+	
+    //create first line
+    for(i = 6; i <24; i++){
+    	var tr = document.createElement("tr");
+    	var td = document.createElement("td");
+    var t = document.createTextNode(i+":00");
+    td.appendChild(t);
+    tr.appendChild(td);
+    for(j = 0; j < 6; j++){
+    	var td = document.createElement("td");
+    
+    var t = document.createTextNode("");
+    //simulación de base de datos
+    if(i==9&&j==0){ td.setAttribute("bgcolor", "red"); var t = document.createTextNode("Clase 1");}
+    else if(i==13&&j==0){ td.setAttribute("bgcolor", "blue"); var t = document.createTextNode("Clase 2");}
+    else if(i==15&&j==1){ td.setAttribute("bgcolor", "green"); var t = document.createTextNode("Clase 3");}
+    else if(i==15&&j==4){ td.setAttribute("bgcolor", "green"); var t = document.createTextNode("Clase 3");}
+    else if(i==16&&j==3){ td.setAttribute("bgcolor", "yellow"); var t = document.createTextNode("Clase 4");}
+    else if(i==17&&j==3){ td.setAttribute("bgcolor", "yellow"); var t = document.createTextNode("Clase 4");}
+    //simulación 
+    td.appendChild(t);
+    tr.appendChild(td);
+    }
+    document.getElementsByTagName("tbody")[0].appendChild(tr);
+    }
+	
+
+
+
+	</script>
 					</div>
 <!--
 					<h3>Otro title</h3>
@@ -137,5 +157,6 @@
 			document.getElementById("push").style.height = footerHeight+"px";
 		  }
 	</script>
+
 </body>
 </html>
