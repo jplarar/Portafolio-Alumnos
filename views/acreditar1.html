@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Portafolio de Alumnos</title>
+	<title>PI</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 	<link rel="stylesheet" href="mystyles.css" >
 </head>
@@ -52,9 +52,9 @@
 				<div class="col-sm-3">
 					<ul class="nav nav-pills nav-stacked">
 					  <li role="presentation"><a href="pi.html">Historia</a></li>
-					  <li role="presentation" class="active"><a href="#">Horario en el Extranjero</a></li>
+					  <li role="presentation"><a href="horario2.html">Horario en el Extranjero</a></li>
 					  <li role="presentation"><a href="calificaciones2.html">Calificaciones en el Extranjero</a></li>
-					  <li role="presentation"><a href="acreditar1.html">Materias por Acreditar</a></li>
+					  <li role="presentation" class="active"><a href="acreditar1.html">Materias por Acreditar</a></li>
 					  <li role="presentation"><a href="acreditar2.html">Materias Acreditadas</a></li>
 					</ul>
 				</div>
@@ -65,50 +65,34 @@
 						<table class="table table-hover">
 							<thead>
 								<tr>
-									<th>Hora</th>
-									<th>Lunes</th>
-									<th>Martes</th>
-									<th>Miercoles</th>
-									<th>Jueves</th>
-									<th>Viernes</th>
-									<th>Sabado</th>
+									<th>Clave</th>
+									<th>Materia</th>
+									<th>Calificacion</th>
 								</tr>
 							</thead>
 							<tbody>
+								<tr>
+									<td>XXXX-1</td>
+									<td>Materia 1</td>
+									<td>A-</td>
+								</tr>
+								<tr>
+									<td>XXXX-2</td>
+									<td>Materia 2</td>
+									<td>C</td>
+								</tr>
+								<tr>
+									<td>XXXX-3</td>
+									<td>Materia 3</td>
+									<td>A</td>
+								</tr>
+								<tr>
+									<td>XXXX-4</td>
+									<td>Materia 4</td>
+									<td>B</td>
+								</tr>
 							</tbody>
 						</table>
-						<script type="text/javascript">
-
-	
-    //create first line
-    for(i = 6; i <24; i++){
-    	var tr = document.createElement("tr");
-    	var td = document.createElement("td");
-    var t = document.createTextNode(i+":00");
-    td.appendChild(t);
-    tr.appendChild(td);
-    for(j = 0; j < 6; j++){
-    	var td = document.createElement("td");
-    
-    var t = document.createTextNode("");
-    //simulación de base de datos
-    if(i==9&&j==0){ td.setAttribute("bgcolor", "red"); var t = document.createTextNode("Clase 1");}
-    else if(i==13&&j==0){ td.setAttribute("bgcolor", "blue"); var t = document.createTextNode("Clase 2");}
-    else if(i==15&&j==1){ td.setAttribute("bgcolor", "green"); var t = document.createTextNode("Clase 3");}
-    else if(i==15&&j==4){ td.setAttribute("bgcolor", "green"); var t = document.createTextNode("Clase 3");}
-    else if(i==16&&j==3){ td.setAttribute("bgcolor", "yellow"); var t = document.createTextNode("Clase 4");}
-    else if(i==17&&j==3){ td.setAttribute("bgcolor", "yellow"); var t = document.createTextNode("Clase 4");}
-    //simulación 
-    td.appendChild(t);
-    tr.appendChild(td);
-    }
-    document.getElementsByTagName("tbody")[0].appendChild(tr);
-    }
-	
-
-
-
-	</script>
 					</div>
 <!--
 					<h3>Otro title</h3>
@@ -157,6 +141,5 @@
 			document.getElementById("push").style.height = footerHeight+"px";
 		  }
 	</script>
-
 </body>
 </html>
