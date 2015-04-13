@@ -52,8 +52,8 @@
 				<div class="col-sm-3">
 					<ul class="nav nav-pills nav-stacked">
 					  <li role="presentation"><a href="academico.html">Historia</a></li>
-					  <li role="presentation" class="active"><a href="horario.html">Horario</a></li>
-					  <li role="presentation"><a href="calificaciones.html">Calificaciones</a></li>
+					  <li role="presentation"><a href="horario.html">Horario</a></li>
+					  <li role="presentation" class="active"><a href="calificaciones.html">Calificaciones</a></li>
 					  <li role="presentation"><a href="#">Bajas</a></li>
 					  <li role="presentation"><a href="#">Toefl</a></li>
 					  <li role="presentation"><a href="#">Cambio Calificaciones</a></li>
@@ -64,16 +64,18 @@
 				<div class="col-sm-9 contenido">
 					<h2>Alumno</h2>
 					<div class="table-responsive">
-						<table class="table table-hover">
+						<table class="table table-hover" id="calTable">
 							<thead>
 								<tr>
-									<th>Hora</th>
-									<th>Lunes</th>
-									<th>Martes</th>
-									<th>Miercoles</th>
-									<th>Jueves</th>
-									<th>Viernes</th>
-									<th>Sabado</th>
+									<th rowspan="2">Materia</th>
+									<th rowspan="2">Nombre de la materia</th>
+									<th colspan="4"> Calificaciones</th>
+								</tr>
+								<th> 1P</th>
+								<th> 2P</th>
+								<th> Promedio</th>
+								<th> Final</th>
+								<tr>
 								</tr>
 							</thead>
 							<tbody>
@@ -83,27 +85,53 @@
 
 	
     //create first line
-    for(i = 6; i <24; i++){
+    for(i = 1; i <5; i++){
+    //clave de mat
     	var tr = document.createElement("tr");
     	var td = document.createElement("td");
-    var t = document.createTextNode(i+":00");
+    var t = document.createTextNode("XXXX-"+i);
     td.appendChild(t);
     tr.appendChild(td);
-    for(j = 0; j < 6; j++){
-    	var td = document.createElement("td");
+    //nombre de materia
+    td = document.createElement("td");
+    var t = document.createTextNode("Clase " +i);
+    td.appendChild(t);
+   	tr.appendChild(td);
+   	//1P
+   	td = document.createElement("td");
+   	var cal1 = Math.floor(Math.random() * (100 - 50+1)) + 50;
+    var t = document.createTextNode(cal1);
+    document.getElementsByTagName("tbody")[0].appendChild(tr);
+    td.appendChild(t);
+    td.setAttribute("class", "calCell");
+   	tr.appendChild(td);
+
+   	//2P
+   	td = document.createElement("td");
+   	var cal2 = Math.floor(Math.random() * (100 - 50+1)) + 50;
+    var t = document.createTextNode(cal2);
+    document.getElementsByTagName("tbody")[0].appendChild(tr);
+    td.appendChild(t);
+    td.setAttribute("class", "calCell");
+   	tr.appendChild(td);
     
-    var t = document.createTextNode("");
-    //simulación de base de datos
-    if(i==9&&j==0){ td.setAttribute("bgcolor", "red"); var t = document.createTextNode("Clase 1");}
-    else if(i==13&&j==0){ td.setAttribute("bgcolor", "blue"); var t = document.createTextNode("Clase 2");}
-    else if(i==15&&j==1){ td.setAttribute("bgcolor", "green"); var t = document.createTextNode("Clase 3");}
-    else if(i==15&&j==4){ td.setAttribute("bgcolor", "green"); var t = document.createTextNode("Clase 3");}
-    else if(i==16&&j==3){ td.setAttribute("bgcolor", "yellow"); var t = document.createTextNode("Clase 4");}
-    else if(i==17&&j==3){ td.setAttribute("bgcolor", "yellow"); var t = document.createTextNode("Clase 4");}
-    //simulación 
+    //PROM
+   	td = document.createElement("td");
+    var t = document.createTextNode((cal1+cal2)/2);
+    document.getElementsByTagName("tbody")[0].appendChild(tr);
     td.appendChild(t);
-    tr.appendChild(td);
-    }
+    td.setAttribute("class", "calCell");
+   	tr.appendChild(td);
+
+   	//final
+   	td = document.createElement("td");
+    var t = document.createTextNode("");
+    document.getElementsByTagName("tbody")[0].appendChild(tr);
+    td.appendChild(t);
+    td.setAttribute("class", "calCell");
+   	tr.appendChild(td);
+    
+
     document.getElementsByTagName("tbody")[0].appendChild(tr);
     }
 	
@@ -158,6 +186,14 @@
 			document.getElementById("wrap").style.margin = "0 0 -"+footerHeight+"px";
 			document.getElementById("push").style.height = footerHeight+"px";
 		  }
+//http://stackoverflow.com/questions/4880595/html-table-set-some-cell-text-colours-based-on-value
+		  $(document).ready(function(){
+    $('#calTable td.calCell').each(function(){
+        if (parseInt($(this).text()) < 70) {
+            $(this).css('color','red');
+        }
+    });
+});
 	</script>
 
 </body>
